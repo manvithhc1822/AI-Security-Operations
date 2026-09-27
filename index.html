@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>AI Security Operations Platform</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            #163b50,
+            transparent 35%
+        ),
+        #050b14;
+
+    color: white;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+
+    height: 70px;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #08111f;
+
+    border-bottom:
+        1px solid #203247;
+}
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+.logo span {
+
+    color: #35d3bd;
+}
+
+.status {
+
+    color: #35d3bd;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    padding: 70px 0 40px;
+
+    text-align: center;
+}
+
+.badge {
+
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    background: #102437;
+
+    border:
+        1px solid #286176;
+
+    color: #42d8c5;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+h1 {
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            65px
+        );
+
+    margin: 22px 0;
+
+    line-height: 1.05;
+}
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #35d3bd,
+            #63a8ff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.hero p {
+
+    color: #8fa5bd;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PIPELINE
+========================================================= */
+
+.pipeline {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin: 40px 0;
+}
+
+.pipeline-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1d2d,
+            #091521
+        );
+
+    border:
+        1px solid #1e354b;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.pipeline-card:hover {
+
+    border-color: #35d3bd;
+
+    transform:
+        translateY(-3px);
+
+    transition: .2s;
+}
+
+.pipeline-number {
+
+    width: 35px;
+
+    height: 35px;
+
+    margin:
+        0 auto 12px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #153b4a;
+
+    color: #35d3bd;
+
+    font-weight: bold;
+}
+
+.pipeline-card h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 7px;
+}
+
+.pipeline-card p {
+
+    font-size: 12px;
+
+    color: #7f94aa;
+}
+
+
+/* =========================================================
+   ANALYZER
+========================================================= */
+
+.analyzer {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.card {
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1b2a,
+            #091420
+        );
+
+    border:
+        1px solid #20364c;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.25);
+}
+
+.card h2 {
+
+    margin-bottom: 20px;
+}
+
+label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #91a7bd;
+
+    font-size: 14px;
+}
+
+textarea {
+
+    width: 100%;
+
+    min-height: 240px;
+
+    resize: vertical;
+
+    padding: 16px;
+
+    border:
+        1px solid #294158;
+
+    border-radius: 12px;
+
+    background: #07121e;
+
+    color: white;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    outline: none;
+}
+
+textarea:focus {
+
+    border-color: #35d3bd;
+}
+
+button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2d9f91,
+            #35d3bd
+        );
+
+    color: #041016;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+
+    opacity: .9;
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result {
+
+    display: none;
+}
+
+.result.show {
+
+    display: block;
+}
+
+.risk {
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    background: #07131f;
+
+    margin-bottom: 20px;
+}
+
+.risk-score {
+
+    font-size: 52px;
+
+    font-weight: bold;
+
+    margin: 10px 0;
+}
+
+.risk-label {
+
+    color: #35d3bd;
+
+    font-weight: bold;
+}
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.stat {
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: #0b1a29;
+
+    border:
+        1px solid #1c3448;
+}
+
+.stat small {
+
+    color: #7f94aa;
+}
+
+.stat strong {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 20px;
+}
+
+.threat {
+
+    display: inline-block;
+
+    padding: 7px 10px;
+
+    margin: 5px;
+
+    border-radius: 20px;
+
+    background: #2a1d25;
+
+    border:
+        1px solid #744052;
+
+    color: #ff8b9b;
+
+    font-size: 12px;
+}
+
+.list {
+
+    margin-top: 15px;
+
+    padding-left: 20px;
+
+    color: #b5c4d2;
+
+    line-height: 1.8;
+}
+
+.incident {
+
+    padding: 15px;
+
+    margin-top: 20px;
+
+    border-radius: 10px;
+
+    background: #102437;
+
+    border:
+        1px solid #28506b;
+}
+
+.incident strong {
+
+    color: #35d3bd;
+}
+
+#status {
+
+    margin-top: 12px;
+
+    color: #8fa5bd;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #62788d;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 900px) {
+
+    .pipeline {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .analyzer {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 550px) {
+
+    .pipeline {
+
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+
+        padding-top: 40px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🛡️ AI <span>Security Operations</span>
+    </div>
+
+    <div class="status">
+        ● SYSTEM ONLINE
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <span class="badge">
+        AI-POWERED SECURITY OPERATIONS
+    </span>
+
+    <h1>
+        Detect Threats.
+        <span>Investigate Faster.</span>
+    </h1>
+
+    <p>
+        Collect security logs, detect threats,
+        classify risk and generate investigation
+        recommendations using an intelligent
+        security analysis pipeline.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     PIPELINE
+===================================================== -->
+
+<section class="pipeline">
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">1</div>
+
+        <h3>Log Collection</h3>
+
+        <p>
+            Collect system and application logs.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">2</div>
+
+        <h3>AI Log Analysis</h3>
+
+        <p>
+            Analyze security events and patterns.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">3</div>
+
+        <h3>Threat Detection</h3>
+
+        <p>
+            Identify suspicious security activity.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">4</div>
+
+        <h3>Risk Classification</h3>
+
+        <p>
+            Calculate security risk level.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">5</div>
+
+        <h3>Incident Creation</h3>
+
+        <p>
+            Create an incident for detected threats.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">6</div>
+
+        <h3>AI Investigation</h3>
+
+        <p>
+            Generate investigation steps.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">7</div>
+
+        <h3>Recommended Response</h3>
+
+        <p>
+            Suggest security response actions.
+        </p>
+
+    </div>
+
+
+    <div class="pipeline-card">
+
+        <div class="pipeline-number">8</div>
+
+        <h3>Security Dashboard</h3>
+
+        <p>
+            Visualize the complete analysis.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ANALYZER
+===================================================== -->
+
+<section class="analyzer">
+
+
+<div class="card">
+
+    <h2>
+        🔍 Security Log Analyzer
+    </h2>
+
+    <label>
+        Paste System / Security Log
+    </label>
+
+    <textarea
+        id="logInput"
+        placeholder="Example:
+
+Failed login attempt for administrator
+from IP 192.168.1.20
+
+Failed login attempt
+Invalid password
+
+Multiple login attempts detected..."
+    ></textarea>
+
+
+    <button onclick="analyzeLog()">
+        Analyze Security Log
+    </button>
+
+
+    <div id="status"></div>
+
+</div>
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<div
+    id="result"
+    class="card result"
+>
+
+    <h2>
+        🛡️ Security Analysis
+    </h2>
+
+
+    <div class="risk">
+
+        <div>
+            Risk Score
+        </div>
+
+        <div
+            id="riskScore"
+            class="risk-score"
+        >
+            0
+        </div>
+
+        <div
+            id="riskLevel"
+            class="risk-label"
+        >
+            Low
+        </div>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <small>
+                Threats
+            </small>
+
+            <strong id="threatCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>
+                Incident
+            </small>
+
+            <strong id="incidentStatus">
+                No
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>
+                Incident ID
+            </small>
+
+            <strong id="incidentId">
+                -
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+        🚨 Detected Threats
+    </h3>
+
+    <div id="threats">
+    </div>
+
+
+    <h3 style="margin-top:25px;">
+        🤖 AI Analysis
+    </h3>
+
+    <p
+        id="analysis"
+        style="
+            margin-top:10px;
+            color:#9db0c3;
+            line-height:1.6;
+        "
+    ></p>
+
+
+    <h3 style="margin-top:25px;">
+        🔎 Investigation Assistant
+    </h3>
+
+    <ul
+        id="investigation"
+        class="list"
+    ></ul>
+
+
+    <h3 style="margin-top:25px;">
+        ⚡ Recommended Response
+    </h3>
+
+    <ul
+        id="recommendations"
+        class="list"
+    ></ul>
+
+
+    <div class="incident">
+
+        <strong>
+            Incident Management
+        </strong>
+
+        <p
+            id="incidentMessage"
+            style="
+                margin-top:7px;
+                color:#9db0c3;
+            "
+        ></p>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    AI Security Operations & Log Intelligence Platform
+    <br>
+    Full-Stack Cybersecurity Project
+
+</footer>
+
+
+<script>
+
+
+// =========================================================
+// RENDER BACKEND
+// =========================================================
+
+const API_URL = "";
+
+
+// =========================================================
+// ANALYZE LOG
+// =========================================================
+
+async function analyzeLog() {
+
+    const log =
+        document
+            .getElementById("logInput")
+            .value
+            .trim();
+
+    const status =
+        document
+            .getElementById("status");
+
+
+    if (!log) {
+
+        status.textContent =
+            "Please enter a security log.";
+
+        return;
+    }
+
+
+    status.textContent =
+        "Analyzing security log...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL + "/analyze",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            log: log
+                        })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Analysis failed."
+            );
+        }
+
+
+        displayResults(data);
+
+
+        status.textContent =
+            "Security analysis completed.";
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+            "Error: " +
+            error.message;
+    }
+}
+
+
+// =========================================================
+// DISPLAY RESULTS
+// =========================================================
+
+function displayResults(data) {
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    result.classList.add("show");
+
+
+    // Risk
+
+    document.getElementById(
+        "riskScore"
+    ).textContent =
+        data.risk.score;
+
+
+    document.getElementById(
+        "riskLevel"
+    ).textContent =
+        data.risk.level;
+
+
+    // Threat count
+
+    document.getElementById(
+        "threatCount"
+    ).textContent =
+        data.threat_detection
+            .threats.length;
+
+
+    // Incident
+
+    document.getElementById(
+        "incidentStatus"
+    ).textContent =
+        data.incident.created
+            ? "Created"
+            : "No";
+
+
+    document.getElementById(
+        "incidentId"
+    ).textContent =
+        data.incident.incident_id ||
+        "-";
+
+
+    // Threats
+
+    const threats =
+        document.getElementById(
+            "threats"
+        );
+
+    threats.innerHTML = "";
+
+
+    if (
+        data.threat_detection
+            .threats.length === 0
+    ) {
+
+        threats.innerHTML =
+            "<span>No known threats detected.</span>";
+
+    } else {
+
+        data.threat_detection
+            .threats
+            .forEach(function(threat) {
+
+                const span =
+                    document.createElement(
+                        "span"
+                    );
+
+                span.className =
+                    "threat";
+
+                span.textContent =
+                    threat;
+
+                threats.appendChild(
+                    span
+                );
+
+            });
+    }
+
+
+    // AI Analysis
+
+    document.getElementById(
+        "analysis"
+    ).textContent =
+        data.log_analysis.summary;
+
+
+    // Investigation
+
+    const investigation =
+        document.getElementById(
+            "investigation"
+        );
+
+    investigation.innerHTML = "";
+
+
+    data.investigation
+        .forEach(function(item) {
+
+            const li =
+                document.createElement(
+                    "li"
+                );
+
+            li.textContent =
+                item;
+
+            investigation.appendChild(
+                li
+            );
+
+        });
+
+
+    // Recommendations
+
+    const recommendations =
+        document.getElementById(
+            "recommendations"
+        );
+
+    recommendations.innerHTML = "";
+
+
+    data.recommendations
+        .forEach(function(item) {
+
+            const li =
+                document.createElement(
+                    "li"
+                );
+
+            li.textContent =
+                item;
+
+            recommendations.appendChild(
+                li
+            );
+
+        });
+
+
+    // Incident message
+
+    document.getElementById(
+        "incidentMessage"
+    ).textContent =
+        data.incident.created
+
+            ? "Security incident " +
+              data.incident.incident_id +
+              " has been created for investigation."
+
+            : "No incident was created because no known threat pattern was detected.";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
